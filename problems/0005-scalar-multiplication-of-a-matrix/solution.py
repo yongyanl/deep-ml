@@ -3,8 +3,12 @@ def scalar_multiply(matrix: list[list[int|float]], scalar: int|float) -> list[li
 	if not matrix or not any(matrix): 
 		return matrix
 
-	for r in range(len(matrix)):
-		for c in range(len(matrix[0])):
-			matrix[r][c] *= scalar
+	result = []
+	for row in matrix:
+		new_row = []
+		for ele in row:
+			new_row.append(ele * scalar)
 
-	return matrix
+		result.append(new_row)
+
+	return result
