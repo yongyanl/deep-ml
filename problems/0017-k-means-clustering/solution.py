@@ -10,7 +10,7 @@ def k_means_clustering(points: list[tuple[float, ...]], k: int, initial_centroid
 		squared_distances = np.sum(diffs ** 2, axis=2)
 		labels = np.argmin(squared_distances, axis=1)
 
-		old_centroids = np.array(centroids)
+		old_centroids = centroids.copy()
 		for i in range(k):
 			cluster_points = points[labels == i]
 			if len(cluster_points > 0):
